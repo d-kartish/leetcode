@@ -147,12 +147,11 @@ namespace LinkedList.TwoPointerTechnique
 
                 while (fast != null && fast.next != null)
                 {
+                    main = main.next;
                     fast = fast.next.next;
 
                     if (main == fast)
-                        return true;
-
-                    main = main.next;
+                        return true;                    
                 }
 
                 return false;
