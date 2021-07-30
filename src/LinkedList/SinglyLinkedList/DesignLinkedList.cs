@@ -2,20 +2,9 @@
 {
     public class DesignLinkedList
     {
-        private class Node
-        {
-            public Node Next { get; set; }
-            public int Val { get; }
-
-            public Node(int val)
-            {
-                Val = val;
-            }
-        }
-
         public class MyLinkedList
         {
-            private Node _head;
+            private ListNode _head;
             private int _count;
 
             /** Initialize your data structure here. */
@@ -27,9 +16,9 @@
             /** Get the value of the index-th node in the linked list. If the index is invalid, return -1. */
             public int Get(int index)
             {
-                if (TryGetAt(index, out Node node))
+                if (TryGetAt(index, out ListNode node))
                 {
-                    return node.Val;
+                    return node.val;
                 }
                 else
                 {
@@ -54,22 +43,22 @@
             {
                 if (index == 0)
                 {
-                    var node = new Node(val)
+                    var node = new ListNode(val)
                     {
-                        Next = _head
+                        next = _head
                     };
 
                     _head = node;
                     _count++;
                 }
-                else if (TryGetAt(index - 1, out Node prev))
+                else if (TryGetAt(index - 1, out ListNode prev))
                 {
-                    Node node = new Node(val)
+                    ListNode node = new ListNode(val)
                     {
-                        Next = prev.Next
+                        next = prev.next
                     };
 
-                    prev.Next = node;
+                    prev.next = node;
                     _count++;
                 }
             }
@@ -82,18 +71,18 @@
 
                 if (index == 0)
                 {
-                    _head = _head.Next;
+                    _head = _head.next;
                     _count--;
                 }
-                else if (TryGetAt(index - 1, out Node prev))
+                else if (TryGetAt(index - 1, out ListNode prev))
                 {
-                    Node current = prev.Next;
-                    prev.Next = current.Next;
+                    ListNode current = prev.next;
+                    prev.next = current.next;
                     _count--;
                 }
             }
 
-            private bool TryGetAt(int index, out Node node)
+            private bool TryGetAt(int index, out ListNode node)
             {
                 node = null;
 
@@ -103,7 +92,7 @@
                 }
 
                 int i = 0;
-                Node current = _head;
+                ListNode current = _head;
 
                 while (current != null)
                 {
@@ -113,7 +102,7 @@
                         return true;
                     }
 
-                    current = current.Next;
+                    current = current.next;
                     i++;
                 }
 
