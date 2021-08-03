@@ -8,7 +8,7 @@ namespace LinkedListTests
         public static (ListNode head, ListNode tail) CreateList(int[] values)
         {
             if (values == null || values.Length == 0)
-                throw new ArgumentNullException(nameof(values), "values is null or empty");
+                return (null, null);
 
             ListNode head = new ListNode(values[0]);
             ListNode current = head;

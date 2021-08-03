@@ -26,7 +26,7 @@ namespace LinkedListTests.TwoPointerTechnique
 
             int skip = values.Length - n;
             List<ListNode> expected = new List<ListNode>(values.Length - 1);
-            
+
             ListNode current = head;
 
             for (int i = 0; i < values.Length; i++)
@@ -55,7 +55,7 @@ namespace LinkedListTests.TwoPointerTechnique
 
                     current = current?.next;
                 }
-            }            
+            }
         }
     }
 }

@@ -18,6 +18,7 @@ namespace LinkedListTests.ClassisProblems
         [InlineData(new int[] { 1, 2, 3, 4, 5 })]
         [InlineData(new int[] { 1, 2 })]
         [InlineData(new int[] { 1 })]
+        [InlineData(new int[] { })]
         public void ReverseList_return_node(int[] values)
         {
             (ListNode head, _) = Helper.CreateList(values);
@@ -48,14 +49,6 @@ namespace LinkedListTests.ClassisProblems
                     current = current?.next;
                 }
             }
-        }
-
-        [Fact]
-        public void ReverseList_should_return_null_if_node_is_null()
-        {
-            ListNode actual = _solution.ReverseList(null);
-
-            Assert.Null(actual);
         }
     }
 }
