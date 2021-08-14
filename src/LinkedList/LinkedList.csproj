@@ -7,13 +7,4 @@
         <StartupObject/>
     </PropertyGroup>
 
-    <ItemGroup>
-        <Compile Remove="ClassisProblems\RemoveLinkedListElements.cs"/>
-        <Compile Remove="ClassisProblems\ReverseLinkedList.cs"/>
-    </ItemGroup>
-
-    <ItemGroup>
-        <Folder Include="ClassisProblems"/>
-    </ItemGroup>
-
 </Project>
