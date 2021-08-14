@@ -1,6 +1,6 @@
 ﻿namespace LinkedList.Conclusion
 {
-    public class FlattenMultilevelDoublyLinkedList
+    public static class FlattenMultilevelDoublyLinkedList
     {
         public class Node
         {

@@ -12,80 +12,132 @@ namespace LinkedListTests.Conclusion
             _solution = new FlattenMultilevelDoublyLinkedList.Solution();
         }
 
-        [Theory]
-        [InlineData(new int[] { 1, 2, 3, 4, 5, 6, 0, 0, 0, 7, 8, 9, 10, 0, 0, 11, 12 }, new int[] { 1, 2, 3, 7, 8, 11, 12, 9, 10, 4, 5, 6 })]
-        [InlineData(new int[] { 1, 2, 0, 3 }, new int[] { 1, 3, 2 })]
-        [InlineData(new int[] { }, new int[] { })]
-        public void Flatten(int[] values, int[] expected)
+        [Fact]
+        public void Flatten_ThreeLevelsList_ReturnNewValidList()
         {
-            var head = Parse(values);
+            var head1 = CreateList(new[] {1, 2, 3, 4, 5, 6});
+            var head2 = CreateList(new[] {7, 8, 9, 10});
+            var head3 = CreateList(new[] {11, 12});
 
-            var actual = _solution.Flatten(head);
+            SetChild(head1, 2, head2);
+            SetChild(head2, 1, head3);
 
-            if (expected.Length == 0)
-            {
-                Assert.Null(actual);
-            }
-            else
-            {
-                var current = actual;
+            //
+            var actual = _solution.Flatten(head1);
 
-                for (int i = 0; i < expected.Length; i++)
-                {
-                    Assert.Equal(expected[i], current.val);
-
-                    current = current.next;
-                }
-            }
+            //
+            AssertListValues(actual, new[] {1, 2, 3, 7, 8, 11, 12, 9, 10, 4, 5, 6});
         }
 
-        private FlattenMultilevelDoublyLinkedList.Node Parse(int[] values)
+        [Fact]
+        public void Flatten_TwoLevelsList_ReturnNewValidList()
         {
-            if (values == null || values.Length == 0)
-                return null;
+            var head1 = CreateList(new[] {1, 2, 4});
+            var head2 = CreateList(new[] {3});
 
-            var head = new FlattenMultilevelDoublyLinkedList.Node();
+            SetChild(head1, 1, head2);
+
+            //
+            var actual = _solution.Flatten(head1);
+
+            //
+            AssertListValues(actual, new[] {1, 2, 3, 4});
+        }
+
+        [Fact]
+        public void Flatten_OneoLevelList_ReturnSameValidList()
+        {
+            var head1 = CreateList(new[] {1, 2, 3});
+
+            //
+            var actual = _solution.Flatten(head1);
+
+            //
+            AssertListValues(actual, new[] {1, 2, 3});
+        }
+
+        [Fact]
+        public void Flatten_FirstNodeHasChild_ReturnNewValidList()
+        {
+            var head1 = CreateList(new[] {1, 2, 3, 4, 5});
+            var head2 = CreateList(new[] {7, 8, 9});
+            var head3 = CreateList(new[] {10, 11});
+
+            SetChild(head1, 0, head2);
+            SetChild(head2, 0, head3);
+
+            //
+            var actual = _solution.Flatten(head1);
+
+            //
+            AssertListValues(actual, new[] {1, 7, 10, 11, 8, 9, 2, 3, 4, 5});
+        }
+
+        [Fact]
+        public void Flatten_LastNodeHasChild_ReturnNewValidList()
+        {
+            var head1 = CreateList(new[] {1, 2, 3, 4, 5});
+            var head2 = CreateList(new[] {7, 8, 9});
+            var head3 = CreateList(new[] {10, 11});
+
+            SetChild(head1, 4, head2);
+            SetChild(head2, 2, head3);
+
+            //
+            var actual = _solution.Flatten(head1);
+
+            //
+            AssertListValues(actual, new[] {1, 2, 3, 4, 5, 7, 8, 9, 10, 11});
+        }
+
+        private FlattenMultilevelDoublyLinkedList.Node CreateList(int[] values)
+        {
+            var head = new FlattenMultilevelDoublyLinkedList.Node
+            {
+                val = values[0]
+            };
+
             var current = head;
 
-            int i = 0;
-
-            while (i < values.Length)
+            for (int i = 1; i < values.Length; i++)
             {
-                int value = values[i];
-
-                if (value > 0)
+                var node = new FlattenMultilevelDoublyLinkedList.Node
                 {
-                    current.next = new FlattenMultilevelDoublyLinkedList.Node
-                    {
-                        prev = current,
-                        val = value
-                    };
+                    val = values[i],
+                    prev = current
+                };
 
-                    current = current.next;
-                }
-                else
-                {
-                    while(value <= 0)
-                    {
-                        current = current.prev;
-                        value = values[++i];
-                    }
-
-                    current.child = new FlattenMultilevelDoublyLinkedList.Node
-                    {
-                        prev = current,
-                        val = value
-                    };
-
-                    current = current.child;
-                }
-
-                i++;
+                current.next = node;
+                current = node;
             }
 
-            head.next.prev = null;
+            return head;
+        }
 
-            return head.next;
+        private void SetChild(FlattenMultilevelDoublyLinkedList.Node head, int skip,
+            FlattenMultilevelDoublyLinkedList.Node child)
+        {
+            var current = head;
+
+            for (int i = 1; i <= skip; i++)
+            {
+                current = current.next;
+            }
+
+            current.child = child;
+            child.prev = current;
+        }
+
+        private void AssertListValues(FlattenMultilevelDoublyLinkedList.Node head, int[] expected)
+        {
+            var current = head;
+
+            for (int i = 0; i < expected.Length; i++)
+            {
+                Assert.Equal(expected[i], current.val);
+
+                current = current.next;
+            }
         }
     }
 }
