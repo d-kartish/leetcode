@@ -1,5 +1,4 @@
 ﻿using LinkedList;
-using System;
 
 namespace LinkedListTests
 {
@@ -51,7 +50,8 @@ namespace LinkedListTests
             return (head, loop);
         }
 
-        public static (ListNode headA, ListNode headB, ListNode intersection) CreateIntersection(int[] valuesA, int[] valuesB, int[] valuesTail)
+        public static (ListNode headA, ListNode headB, ListNode intersection) CreateIntersection(int[] valuesA,
+            int[] valuesB, int[] valuesTail)
         {
             (ListNode headA, ListNode tailA) = CreateList(valuesA);
             (ListNode headB, ListNode tailB) = CreateList(valuesB);

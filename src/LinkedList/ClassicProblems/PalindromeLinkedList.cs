@@ -1,6 +1,6 @@
-﻿namespace LinkedList.ClassisProblems
+﻿namespace LinkedList.ClassicProblems
 {
-    public class PalindromeLinkedList
+    public static class PalindromeLinkedList
     {
         public class Solution
         {

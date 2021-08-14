@@ -1,6 +1,6 @@
 ﻿namespace LinkedList.TwoPointerTechnique
 {
-    public class LinkedListCycle2
+    public static class LinkedListCycle2
     {
         public class Solution
         {

@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace LinkedList.TwoPointerTechnique
+﻿namespace LinkedList.TwoPointerTechnique
 {
-    public class LinkedListCycle
+    public static class LinkedListCycle
     {
         public class Solution
         {
@@ -17,7 +15,7 @@ namespace LinkedList.TwoPointerTechnique
                     fast = fast.next.next;
 
                     if (main == fast)
-                        return true;                    
+                        return true;
                 }
 
                 return false;

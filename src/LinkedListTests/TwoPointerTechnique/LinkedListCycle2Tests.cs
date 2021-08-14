@@ -14,10 +14,10 @@ namespace LinkedListTests.TwoPointerTechnique
         }
 
         [Theory]
-        [InlineData(new int[] { 3, 2, 0, -4 }, 1)]
-        [InlineData(new int[] { 1, 2 }, 0)]
-        [InlineData(new int[] { 3, 2, 0, -4, 5 }, 0)]
-        [InlineData(new int[] { 3, 2, 0, -4, 5 }, 4)]
+        [InlineData(new[] {3, 2, 0, -4}, 1)]
+        [InlineData(new[] {1, 2}, 0)]
+        [InlineData(new[] {3, 2, 0, -4, 5}, 0)]
+        [InlineData(new[] {3, 2, 0, -4, 5}, 4)]
         public void DetectCycle_return_true(int[] values, int loopNodeIndex)
         {
             (ListNode head, ListNode loop) = Helper.CreateLoop(values, loopNodeIndex);
@@ -28,10 +28,10 @@ namespace LinkedListTests.TwoPointerTechnique
         }
 
         [Theory]
-        [InlineData(new int[] { 3, 2, 0, -4 })]
-        [InlineData(new int[] { 1, 2 })]
-        [InlineData(new int[] { 1 })]
-        [InlineData(new int[] { 1, 1, 1, 1 })]
+        [InlineData(new[] {3, 2, 0, -4})]
+        [InlineData(new[] {1, 2})]
+        [InlineData(new[] {1})]
+        [InlineData(new[] {1, 1, 1, 1})]
         public void DetectCycle_return_false(int[] values)
         {
             (ListNode head, _) = Helper.CreateList(values);

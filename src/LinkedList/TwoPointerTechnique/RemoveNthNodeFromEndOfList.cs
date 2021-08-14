@@ -1,6 +1,6 @@
 ﻿namespace LinkedList.TwoPointerTechnique
 {
-    public class RemoveNthNodeFromEndOfList
+    public static class RemoveNthNodeFromEndOfList
     {
         public class Solution
         {

@@ -1,6 +1,6 @@
 ﻿namespace LinkedList.TwoPointerTechnique
 {
-    public class IntersectionOfTwoLinkedLists
+    public static class IntersectionOfTwoLinkedLists
     {
         public class Solution
         {

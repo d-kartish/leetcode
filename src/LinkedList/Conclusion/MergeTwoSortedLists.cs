@@ -1,6 +1,6 @@
 ﻿namespace LinkedList.Conclusion
 {
-    public class MergeTwoSortedLists
+    public static class MergeTwoSortedLists
     {
         public class Solution
         {

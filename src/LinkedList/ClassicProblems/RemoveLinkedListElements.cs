@@ -1,6 +1,6 @@
-﻿namespace LinkedList.ClassisProblems
+﻿namespace LinkedList.ClassicProblems
 {
-    public class RemoveLinkedListElements
+    public static class RemoveLinkedListElements
     {
         public class Solution
         {

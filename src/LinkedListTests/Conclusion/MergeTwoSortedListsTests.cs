@@ -14,12 +14,12 @@ namespace LinkedListTests.Conclusion
         }
 
         [Theory]
-        [InlineData(new int[] { 1, 2, 4 }, new int[] { 1, 3, 4 }, new int[] { 1, 1, 2, 3, 4, 4 })]
-        [InlineData(new int[] { 4, 5, 6 }, new int[] { 1, 2, 3 }, new int[] { 1, 2, 3, 4, 5, 6 })]
-        [InlineData(new int[] { 1, 2, 3 }, new int[] { 4, 5, 6 }, new int[] { 1, 2, 3, 4, 5, 6 })]
-        [InlineData(new int[] { 1, 1, 1 }, new int[] { 1, 1, 1 }, new int[] { 1, 1, 1, 1, 1, 1 })]
-        [InlineData(new int[] { 1, 2, 4 }, new int[] { }, new int[] { 1, 2, 4 })]
-        [InlineData(new int[] { }, new int[] { 1, 3, 4 }, new int[] { 1, 3, 4 })]
+        [InlineData(new[] {1, 2, 4}, new[] {1, 3, 4}, new[] {1, 1, 2, 3, 4, 4})]
+        [InlineData(new[] {4, 5, 6}, new[] {1, 2, 3}, new[] {1, 2, 3, 4, 5, 6})]
+        [InlineData(new[] {1, 2, 3}, new[] {4, 5, 6}, new[] {1, 2, 3, 4, 5, 6})]
+        [InlineData(new[] {1, 1, 1}, new[] {1, 1, 1}, new[] {1, 1, 1, 1, 1, 1})]
+        [InlineData(new[] {1, 2, 4}, new int[] { }, new[] {1, 2, 4})]
+        [InlineData(new int[] { }, new[] {1, 3, 4}, new[] {1, 3, 4})]
         [InlineData(new int[] { }, new int[] { }, new int[] { })]
         public void MergeTwoLists(int[] valuesA, int[] valuesB, int[] expected)
         {

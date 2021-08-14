@@ -1,5 +1,5 @@
 ﻿using LinkedList;
-using LinkedList.ClassisProblems;
+using LinkedList.ClassicProblems;
 using Xunit;
 
 namespace LinkedListTests.ClassisProblems
@@ -14,10 +14,10 @@ namespace LinkedListTests.ClassisProblems
         }
 
         [Theory]
-        [InlineData(new int[] { 1, 2, 2, 1 })]
-        [InlineData(new int[] { 1, 2, 3, 2, 1 })]
-        [InlineData(new int[] { 1, 2, 3, 3, 2, 1 })]
-        [InlineData(new int[] { 1, 2, 3, 3, 3, 2, 1 })]
+        [InlineData(new[] {1, 2, 2, 1})]
+        [InlineData(new[] {1, 2, 3, 2, 1})]
+        [InlineData(new[] {1, 2, 3, 3, 2, 1})]
+        [InlineData(new[] {1, 2, 3, 3, 3, 2, 1})]
         public void IsPalindrome_return_true(int[] values)
         {
             (ListNode head, _) = Helper.CreateList(values);
@@ -28,10 +28,10 @@ namespace LinkedListTests.ClassisProblems
         }
 
         [Theory]
-        [InlineData(new int[] { 1, 2, })]
-        [InlineData(new int[] { 1, 2, 3 })]
-        [InlineData(new int[] { 1, 2, 3, 2 })]
-        [InlineData(new int[] { 4, 2, 3, 1 })]
+        [InlineData(new[] {1, 2,})]
+        [InlineData(new[] {1, 2, 3})]
+        [InlineData(new[] {1, 2, 3, 2})]
+        [InlineData(new[] {4, 2, 3, 1})]
         public void IsPalindrome_return_false(int[] values)
         {
             (ListNode head, _) = Helper.CreateList(values);

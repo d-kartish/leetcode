@@ -1,6 +1,5 @@
 ﻿using LinkedList;
-using LinkedList.ClassisProblems;
-using System.Collections.Generic;
+using LinkedList.ClassicProblems;
 using Xunit;
 
 namespace LinkedListTests.ClassisProblems
@@ -15,9 +14,9 @@ namespace LinkedListTests.ClassisProblems
         }
 
         [Theory]
-        [InlineData(new int[] { 1, 2, 3, 4, 5 })]
-        [InlineData(new int[] { 1, 2 })]
-        [InlineData(new int[] { 1 })]
+        [InlineData(new[] {1, 2, 3, 4, 5})]
+        [InlineData(new[] {1, 2})]
+        [InlineData(new[] {1})]
         [InlineData(new int[] { })]
         public void ReverseList_return_node(int[] values)
         {

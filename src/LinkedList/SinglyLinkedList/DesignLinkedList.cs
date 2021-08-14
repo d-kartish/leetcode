@@ -1,7 +1,10 @@
-﻿namespace LinkedList.SinglyLinkedList
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace LinkedList.SinglyLinkedList
 {
-    public class DesignLinkedList
+    public static class DesignLinkedList
     {
+        [SuppressMessage("ReSharper", "EmptyConstructor")]
         public class MyLinkedList
         {
             private ListNode _head;
@@ -10,7 +13,6 @@
             /** Initialize your data structure here. */
             public MyLinkedList()
             {
-
             }
 
             /** Get the value of the index-th node in the linked list. If the index is invalid, return -1. */

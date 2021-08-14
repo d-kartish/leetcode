@@ -1,6 +1,6 @@
-﻿namespace LinkedList.ClassisProblems
+﻿namespace LinkedList.ClassicProblems
 {
-    public class OddEvenLinkedList
+    public static class OddEvenLinkedList
     {
         public class Solution
         {

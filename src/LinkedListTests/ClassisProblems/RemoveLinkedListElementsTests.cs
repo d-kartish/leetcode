@@ -1,6 +1,6 @@
-﻿using LinkedList;
-using LinkedList.ClassisProblems;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using LinkedList;
+using LinkedList.ClassicProblems;
 using Xunit;
 
 namespace LinkedListTests.ClassisProblems
@@ -15,17 +15,17 @@ namespace LinkedListTests.ClassisProblems
         }
 
         [Theory]
-        [InlineData(new int[] { 1, 2, 6, 3, 4, 5, 6 }, 6)]
-        [InlineData(new int[] { 1, 2, 6, 3, 4, 5, 6 }, 1)]
-        [InlineData(new int[] { 1, 2, 6, 3, 4, 5, 6 }, 3)]
-        [InlineData(new int[] { 7, 7, 7, 7 }, 7)]
+        [InlineData(new[] {1, 2, 6, 3, 4, 5, 6}, 6)]
+        [InlineData(new[] {1, 2, 6, 3, 4, 5, 6}, 1)]
+        [InlineData(new[] {1, 2, 6, 3, 4, 5, 6}, 3)]
+        [InlineData(new[] {7, 7, 7, 7}, 7)]
         [InlineData(new int[] { }, 7)]
         public void RemoveElements(int[] values, int value)
         {
             (ListNode head, _) = Helper.CreateList(values);
 
             List<ListNode> expected = new List<ListNode>(values.Length);
-            
+
             ListNode current = head;
 
             for (int i = 0; i < values.Length; i++)
@@ -48,7 +48,7 @@ namespace LinkedListTests.ClassisProblems
             {
                 current = actual;
 
-                foreach(ListNode node in expected)
+                foreach (ListNode node in expected)
                 {
                     Assert.Equal(node, current);
 

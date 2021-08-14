@@ -1,6 +1,6 @@
 ﻿namespace LinkedList.Conclusion
 {
-    public class AddTwoNumbers
+    public static class AddTwoNumbers
     {
         public class Solution
         {

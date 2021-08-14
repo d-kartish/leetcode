@@ -1,13 +1,13 @@
-﻿using LinkedList;
+﻿using System.Collections.Generic;
+using LinkedList;
 using LinkedList.TwoPointerTechnique;
-using System.Collections.Generic;
 using Xunit;
 
 namespace LinkedListTests.TwoPointerTechnique
 {
     public class RemoveNthNodeFromEndOfListTests
     {
-        public RemoveNthNodeFromEndOfList.Solution _solution;
+        private RemoveNthNodeFromEndOfList.Solution _solution;
 
         public RemoveNthNodeFromEndOfListTests()
         {
@@ -15,11 +15,11 @@ namespace LinkedListTests.TwoPointerTechnique
         }
 
         [Theory]
-        [InlineData(new int[] { 1, 2, 3, 4, 5 }, 2)]
-        [InlineData(new int[] { 1, 2, 3, 4, 5 }, 5)]
-        [InlineData(new int[] { 1, 2 }, 1)]
-        [InlineData(new int[] { 1, 2 }, 2)]
-        [InlineData(new int[] { 1 }, 1)]
+        [InlineData(new[] {1, 2, 3, 4, 5}, 2)]
+        [InlineData(new[] {1, 2, 3, 4, 5}, 5)]
+        [InlineData(new[] {1, 2}, 1)]
+        [InlineData(new[] {1, 2}, 2)]
+        [InlineData(new[] {1}, 1)]
         public void RemoveNthFromEnd_return_node(int[] values, int n)
         {
             (ListNode head, _) = Helper.CreateList(values);

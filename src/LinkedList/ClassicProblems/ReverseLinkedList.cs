@@ -1,6 +1,6 @@
-﻿namespace LinkedList.ClassisProblems
+﻿namespace LinkedList.ClassicProblems
 {
-    public class ReverseLinkedList
+    public static class ReverseLinkedList
     {
         public class Solution
         {

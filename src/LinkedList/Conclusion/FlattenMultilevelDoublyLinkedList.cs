@@ -1,7 +1,10 @@
-﻿namespace LinkedList.Conclusion
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace LinkedList.Conclusion
 {
     public static class FlattenMultilevelDoublyLinkedList
     {
+        [SuppressMessage("ReSharper", "InconsistentNaming")]
         public class Node
         {
             public int val;

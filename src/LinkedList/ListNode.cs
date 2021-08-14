@@ -1,9 +1,13 @@
-﻿namespace LinkedList
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace LinkedList
 {
+    [SuppressMessage("ReSharper", "InconsistentNaming")]
     public class ListNode
     {
         public int val;
         public ListNode next;
+
         public ListNode(int x)
         {
             val = x;
